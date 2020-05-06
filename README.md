@@ -38,6 +38,15 @@ A continuación se muestra un ejemplo del uso de face-api.js
 
 
 
+# Versiones
+
+A continuación se muestra en la Tabla I el detalle de cada versión especificando el commit y su descripción de la funcionalidad incluida.
+
+| No. | Commit | Descripción |
+| ------ | ------ | ------ |
+| 1 | 7488e2cf75dcc054e661a879c104aa0e68be09a5 | Carga del modelo y reconocimiento facial, Sexo y Edad |
+| 2 | b72388652d693cd41b15972ca95752168456f974 | Integración Filtros 2d Tematica Guatemala/15 de Septiembre |
+
 
 # Sitios para descargar SVG
 
