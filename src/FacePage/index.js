@@ -21,7 +21,9 @@ class FacePage extends Component {
             imageFilter: new Image(),
             showFilter: true,
             ejeXe: 0,
-            ejeYe:20,
+            ejeYe:68,
+            landStart:63,
+            landEnd: 13
         }
         this.setVideoHandler = this.setVideoHandler.bind(this);
         this.isModelLoaded = this.isModelLoaded.bind(this);
@@ -35,16 +37,16 @@ class FacePage extends Component {
                     console.log("face detected", 1);
                     const dims = faceapi.matchDimensions(this.props.canvas.current, this.props.video.current, true);
                     const resizedResult = faceapi.resizeResults(result, dims);
-                    faceapi.draw.drawDetections(this.props.canvas.current, resizedResult);
+                  //  faceapi.draw.drawDetections(this.props.canvas.current, resizedResult);
                  //   faceapi.draw.drawFaceLandmarks(this.props.canvas.current, resizedResult);
 
                     const currentCanvas = ReactDOM.findDOMNode(this.props.canvas.current);
                     var canvasElement = currentCanvas.getContext("2d");
                     this.addFilter(canvasElement, result);
                    // this.addBoxIndexOfLandmark(canvasElement, result.landmarks.positions[this.state.positionIndex]);
-                    this.addBackgroundInformation(canvasElement, result);
-                    this.addGenderAndAgeInformation(canvasElement, result);
-                    this.addEmotionInformation(canvasElement, resizedResult, result);
+                 //   this.addBackgroundInformation(canvasElement, result);
+                  //  this.addGenderAndAgeInformation(canvasElement, result);
+                   // this.addEmotionInformation(canvasElement, resizedResult, result);
 
                 } else {
                     console.log("face detected", 1);
@@ -165,7 +167,7 @@ class FacePage extends Component {
 
         let dirs = { 
          guate1: '/filter/escudo.svg',
-         guate2: '/filter/bandera.png', 
+         guate2: '/filter/banderapeque.png', 
         }
         
 
@@ -197,20 +199,20 @@ class FacePage extends Component {
 
         let dirs = { 
         guate1: '/filter/escudo.svg', 
-        guate2: '/filter/bandera.png', 
+        guate2: '/filter/banderapeque.png', 
         guate3: '/filter/quetzal.png',
         guate4: '/filter/logo.png',
-        guate5: '/filter/drinkplace.svg',
-        guate6: '/filter/ball.svg',
-        guate7: '/filter/fashion.svg',
-        guate8: '/filter/holidays.svg',
-        guate9: '/filter/nature.svg',
-        guate10: '/filter/protection.svg',
-        guate11: '/filter/sand-bucket.svg',
-        guate12: '/filter/beach.svg',
-        guate13: '/filter/sea-animal.svg',
-        guate14: '/filter/summertime.svg',
-        guate15: '/filter/swimsuit.svg',
+        guate5: '/filter/corazon.png',
+        guate6: '/filter/escudoazul.png',
+        guate7: '/filter/gobierno.png',
+        guate8: '/filter/hojaescudo.png',
+        guate9: '/filter/mano.png',
+        guate10: '/filter/manoguate.png',
+        guate11: '/filter/mapa.png',
+        guate12: '/filter/reu.jpg',
+        guate13: '/filter/volcan.png',
+        guate14: '/filter/toto.png',
+        guate15: '/filter/xela.jpg',
         
      }
 
@@ -249,8 +251,10 @@ class FacePage extends Component {
 
   
 switchFilter(e){
-
-    this.setState({ filterName: e.target.value, ejeX: 0, ejeYe:80 })
+    let dirs = { 
+        guate1:  {dejex: 0 , djey:130, landStart: 11, landEnd: 13},
+        guate2: {dejex: 0 , djey: 65},
+       }
 
 }
     render() {
@@ -264,12 +268,22 @@ switchFilter(e){
                     value={this.state.positionIndex}
                     onChange={(event) => { this.setState({ positionIndex: event.target.value }) }} />
 
-                <button type="button" value='guate1' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:20 }) }}>ESCUDO</button>
-                <button type="button" value='guate2' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:20 }) }}>BANDERA</button>
-                <button type="button" value='guate3' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 50, ejeYe:100 }) }}>QUETZAL</button>
-                <button type="button" value='guate4' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>LOGO</button>
-                <button type="button" value='guate5' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>LENTES 3</button>
-                <button type="button" value='guate6' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>LENTES 3</button>
+                <button type="button" value='guate1' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe: 130,  landStart: 11,  landEnd: 11, width: 100, height: 100 }) }}>ESCUDO</button>
+                <button type="button" value='guate2' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe: 20,  landStart: 47, landEnd: 13 }) }}>BANDERA</button>
+                <button type="button" value='guate3' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe: -90 , landStart: 27, landEnd: 27 }) }}>QUETZAL</button>
+                <button type="button" value='guate4' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe: 100, landStart: 8, landEnd: 10 }) }}>LOGO</button>
+                <button type="button" value='guate5' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe: 125, landStart: 16, landEnd: 14 }) }}>CORAZON</button>
+                <button type="button" value='guate6' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:150,  landStart: 13, landEnd: 10 }) }}>ESCUDO AZUL</button>
+                <button type="button" value='guate7' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:-150,  landStart: 17, landEnd: 11, }) }}>GOBIERNO</button>
+                <button type="button" value='guate8' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80,  landStart: 17, landEnd: 11 }) }}>HOJAS ESCUDO</button>
+                <button type="button" value='guate9' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:100,  landStart: 17, landEnd: 11 }) }}>MANO GUATE</button>
+                <button type="button" value='guate10' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80, landStart: 17, landEnd: 11 }) }}>MANO BANDERA</button>
+                <button type="button" value='guate11' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:-125, landStart: 17, landEnd: 11 }) }}>MAPA GUATE</button>
+                <button type="button" value='guate12' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:-150, landStart: 17, landEnd: 11 }) }}>BANDERA REU</button>
+                <button type="button" value='guate13' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:120, landStart: 8, landEnd: 10 }) }}>VOLCANES </button>
+                <button type="button" value='guate14' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:-100, landStart: 17, landEnd: 11}) }}>BANDERA TOTO</button>
+                <button type="button" value='guate15' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:-100, landStart: 17, landEnd: 11}) }}>BANDERA XELA</button>
+
 
                 <h1>{this.state.filterName}</h1>
                 <h1>{this.state.ejeX}</h1>
